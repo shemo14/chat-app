@@ -7,7 +7,8 @@ class GetName extends Component{
     constructor(props){
         super(props);
         this.state = {
-            username: ''
+            username: '',
+            phone: ''
         };
     }
 
@@ -16,7 +17,7 @@ class GetName extends Component{
     };
 
     navigationToOnlineUsers(){
-        this.props.navigation.navigate('onlineUsers', { id: this.state.username })
+        this.props.navigation.navigate('onlineUsers', { id: this.state.username, phone: this.state.phone });
     }
 
     render(){
@@ -28,6 +29,11 @@ class GetName extends Component{
                             <Item floatingLabel>
                                 <Label style={{ color: '#4b5b89', marginBottom: 3 }}>Username</Label>
                                 <Input onChangeText={(username) => this.setState({ username })} style={{ color: '#fff' }}/>
+                            </Item>
+
+                            <Item floatingLabel>
+                                <Label style={{ color: '#4b5b89', marginBottom: 3 }}>Phone</Label>
+                                <Input onChangeText={(phone) => this.setState({ phone })} style={{ color: '#fff' }}/>
                             </Item>
 
                             <Button onPress={() => this.navigationToOnlineUsers()} style={{ backgroundColor: '#44a8ff', alignSelf: 'center', marginTop: 20, width: 60, justifyContent: 'center' }}>
